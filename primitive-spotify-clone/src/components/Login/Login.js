@@ -1,4 +1,4 @@
-import React from 'react'
+/* import React from 'react'
 import './Login.css';
 import { loginUrl } from './spotify';
 
@@ -13,4 +13,4 @@ const Login = () => (
     </div>
 );
 
-export default Login;
+export default Login; */
