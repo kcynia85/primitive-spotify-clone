@@ -1,15 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-/* import { DataLayer } from './DataLayer';
-import reducer, { initialState } from './reducer'; */
+import Root from 'views/Root/Root';
 
 ReactDOM.render(
   <React.StrictMode>
-
-      <App />
-   
+      <Root />
   </React.StrictMode>,
   document.getElementById('root')
 );

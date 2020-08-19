@@ -1,16 +1,29 @@
-/* import React from 'react'
-import './Login.css';
-import { loginUrl } from './spotify';
+import React from 'react'
+import styled from 'styled-components';
+import { loginUrl } from 'api/spotify';
+import Button from 'components/Login/Button/Button';
+
+const StyledLogin = styled.div`
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background: hsl(0, 0%, 0%);
+`;
+
+const ImageLogin = styled.img`
+     width: 100%;
+`;
 
 const Login = () => (
-    <div className="login">
+    <StyledLogin>
         <h1>Im the login page</h1>
-        <img 
+        <ImageLogin 
             src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_White.png"
             alt="spotify logo"
         />
-        <a href={loginUrl}>LOGIN WITH SPOTIFY </a>
-    </div>
+        <Button href={loginUrl}>LOGIN WITH SPOTIFY</Button>
+    </StyledLogin>
 );
 
-export default Login; */
+export default Login;
+
