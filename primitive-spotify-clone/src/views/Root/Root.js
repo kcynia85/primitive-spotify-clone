@@ -1,5 +1,5 @@
 import { useDataLayerValue } from 'data/DataLayer';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Login from 'components/Login/Login';
 import Player from 'components/Player/Player';
 import { ThemeProvider } from 'styled-components';
@@ -23,17 +23,24 @@ const Root = () => {
       dispatch({
         type:'SET_TOKEN',
         token: _token,
-      })
+      });
 
       spotify.setAccessToken(_token);
       spotify.getMe().then(user => {
           dispatch({
             type: 'SET_USER',
             user: user,
-          })
-      })
-    }
-  }, []);
+          });
+      });
+
+      spotify.getUserPlaylists().then((playlists) => {
+        dispatch({
+          type:'SET_PLAYLISTS',
+          playlists: playlists,
+        })
+      });
+    };
+  }, [dispatch]);
 
   console.log("Hey", user, token)
   return ( 

@@ -1,31 +1,62 @@
+import { useDataLayerValue } from 'data/DataLayer';
 import React from 'react'
 import styled from 'styled-components';
-import SidebarOption from 'components/Player/Sidebar/SidebarOption/SidebarOption'
+import SidebarOption from 'components/Player/Sidebar/SidebarOption/SidebarOption';
+import HomeIcon from '@material-ui/icons/Home';
+import SearchIcon from '@material-ui/icons/Search';
+import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
+
 
 const StyledSidebar = styled.aside`
-    flex: 0.2;
     height: 100vh;
     min-width: 230px;
-    border: 1px solid hsl(0, 0%, 0%);
     color: white;
     background: hsl(0, 0%, 2%);
+    padding-left: 10px;
+    padding-right: 10px;
+
+    & .styledSidebar__underline {
+        border: 1px solid #282828;
+        width: 90%;
+        margin: 10px auto;
+    }
 `;
 
 const LogoSidebar = styled.img`
     margin-right: auto;
     height: 70px;
-    padding: 10px;
+    padding: 15.5px;
+    margin-top: 10px;
+`;
+
+const PlaylistTitle = styled.strong`
+    text-transform: uppercase;
+    margin-left: 10px;
+    padding: 5px;
+    font-size: 12px;
 `;
 
 const Sidebar = () => {
+    const [{playlists}, dispatch] = useDataLayerValue();
     return (
         <StyledSidebar>
             <LogoSidebar 
                 src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_White.png" 
                 alt="spotofy logo in sidebar"/>
-            <SidebarOption title="Home" />
-            <SidebarOption title="Search" />
-            <SidebarOption title="Your list" />
+            <SidebarOption icon Icon={HomeIcon} title="Home" />
+            <SidebarOption icon Icon={SearchIcon} title="Search" />
+            <SidebarOption icon Icon={LibraryMusicIcon} title="Your Library" />
+            <br />
+            <PlaylistTitle>playlists</PlaylistTitle>
+            <hr className="styledSidebar__underline"/>
+
+            {playlists?.items?.map(({ name }) => (
+                <SidebarOption title={name} />
+            ))}
+            <SidebarOption title="Hip Hop" />
+            <SidebarOption title="Rock" />
+            <SidebarOption title="RnB" />
+            
         </StyledSidebar>
     )
 }

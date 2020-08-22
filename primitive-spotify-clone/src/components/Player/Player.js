@@ -9,7 +9,9 @@ const StyledPlayer = styled.div`
 `;
 
 const InnerStyledPlayer = styled.div`
-    display: flex;
+      display: grid;
+      grid-template-columns: minmax(230px, 15%) 1fr;
+  }
 `;
 
 const Player = () => {
