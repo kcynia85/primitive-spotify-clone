@@ -20,7 +20,7 @@ const StyledFooter = styled.footer`
     bottom: 0;
     height: 75px;
     width: 100%;
-    background: hsl(0, 0%, 16%);
+    background: ${({ theme }) => theme.colors.mediumGray};
     padding: 10px;
 `;
 
@@ -39,7 +39,7 @@ const AlbumDetails = styled.div`
         margin-right: 20px;
         margin-left: 20px;
         object-fit: contain;
-        box-shadow: 0px 0px 19px -6px rgba(0, 0, 0, 0.17);
+        box-shadow: 0px 0px 19px -6px hsla(0, 0%, 0%, 0.17);
     }
 
     & .albumDetails__title {
@@ -47,8 +47,8 @@ const AlbumDetails = styled.div`
     }
 
     & .albumDetails__author {
-        color: hsl(0,0%,40%);
-        font-size: { ({ theme }) => theme.fontSize.extraSmall };
+        color: ${({ theme }) => theme.colors.lighterGray};
+        font-size: ${({ theme }) => theme.fontSize.extraSmall};
     }
 
     & .albumDetails__favouriteIcon {
@@ -57,18 +57,18 @@ const AlbumDetails = styled.div`
         width: auto;
         margin-left: 20px;
         transition: color .2s;
-        color: hsl(0,0%,40%);
+        color: ${({ theme }) => theme.colors.lighterGray};
 
         &:hover {
-            color: #1db954;
+            color: ${({ theme }) => theme.colors.darkGreen};
         }
     
     & .albumDetails__favouriteIcon--green {
-            color: #1db954;
+            color: ${({ theme }) => theme.colors.darkGreen};
             transition: color .2s;
             
             &:hover {
-                color: #4efe43;
+                color: ${({ theme }) => theme.colors.lightGreen};
             }
         }
     }
@@ -134,11 +134,11 @@ const Footer = () => {
         </AlbumDetails>
 
         <PlayerControls>
-            <ShuffleIcon style={{ fontSize: 18 }} className="playerControls__icon"/>
-            <SkipPreviousIcon style={{ fontSize: 18 }} className="playerControls__icon" />
-            <PlayCircleOutlineIcon style={{ fontSize: 40 }} className="playerControls__icon"/>
-            <SkipNextIcon style={{ fontSize: 18 }} className="playerControls__icon" />
-            <RepeatIcon style={{ fontSize: 18 }} className="playerControls__icon"/>
+            <ShuffleIcon className="playerControls__icon"/>
+            <SkipPreviousIcon className="playerControls__icon" />
+            <PlayCircleOutlineIcon  className="playerControls__icon"/>
+            <SkipNextIcon className="playerControls__icon" />
+            <RepeatIcon className="playerControls__icon"/>
         </PlayerControls>
 
         <VolumeControls>

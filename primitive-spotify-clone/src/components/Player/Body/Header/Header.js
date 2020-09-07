@@ -13,8 +13,8 @@ const StyledHeader = styled.header`
     & .header__leftSide {
         flex: 0.6;
         min-width: 70px;
-        background-color: white;
-        color: gray;
+        background-color: ${({ theme }) => theme.colors.white};
+        color: ${({ theme }) => theme.colors.lighterGray};
         border-radius: 30px;
         padding: 10px;
         display: flex;

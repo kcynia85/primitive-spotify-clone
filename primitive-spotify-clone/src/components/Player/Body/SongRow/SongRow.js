@@ -7,11 +7,11 @@ const StyledSongRow = styled.div `
     display: flex;
     align-items: center;
     z-index: 100;
-    color: white;
+    color: ${({ theme }) => theme.colors.white};
 
     &:hover {
         cursor: pointer;
-        background-color: black;
+        background-color: ${({ theme }) => theme.colors.black};
         opacity: 0.8;
     }
 
@@ -25,11 +25,11 @@ const StyledSongRow = styled.div `
     }
 
     & .songRow__header {
-        font-size: 16px;
+        font-size: ${({ theme }) => theme.fontSize.normal};
     }
 
     & .songRow__paragraph {
-        font-size: 14px;
+        font-size: ${({ theme }) => theme.fontSize.small};
         margin-top: 3px;
         color: gray;
     }

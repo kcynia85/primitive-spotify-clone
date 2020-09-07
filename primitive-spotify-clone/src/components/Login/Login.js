@@ -7,7 +7,7 @@ const StyledLogin = styled.div`
     display: grid;
     place-items: center;
     height: 100vh;
-    background: hsl(0, 0%, 0%);
+    background: ${({ theme }) => theme.colors.black};;
 `;
 
 const ImageLogin = styled.img`

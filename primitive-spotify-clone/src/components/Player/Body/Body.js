@@ -8,7 +8,7 @@ import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import SongRow from 'components/Player/Body/SongRow/SongRow'
 
 const StyledBody = styled.div`
-    color: hsl(0, 0%, 100%);
+    color: ${({ theme }) => theme.colors.white};
     overflow-y: overlay;
     background: linear-gradient(hsl(249, 14%, 40%), hsla(0, 0%, 0%, 1));
     padding: 30px;
@@ -24,18 +24,18 @@ const StyledBody = styled.div`
         align-items: flex-end;
         padding: 10px;
 
-        @media(max-width: 743px) {
+        @media(max-width: ${({ theme }) => theme.media.tablet}) {
             flex-wrap: wrap;
         }
     }
 
     & .discoverWeeklySection__subHeader {
-        font-size: 48px;
+        font-size: ${({ theme }) => theme.fontSize.extraLarge};
         margin: 10px 0 10px !important;
     }
 
     & .discoverWeeklySection__paragraph {
-        font-size: 14px;
+        font-size: ${({ theme }) => theme.fontSize.small};
     }
 
     & .discoverWeeklySection__albumPicture {
