@@ -1,4 +1,3 @@
-import { useDataLayerValue } from 'data/DataLayer';
 import React, { useEffect } from 'react';
 import Login from 'components/Login/Login';
 import Player from 'components/Player/Player';
@@ -7,6 +6,7 @@ import GlobalStyle from 'theme/GlobalStyle';
 import theme from 'theme/theme';
 import { getTokenFromUrl } from 'api/spotify';
 import SpotifyWebApi from 'spotify-web-api-js';
+import { useDataLayerValue } from 'data/DataLayer';
 
 const spotify = new SpotifyWebApi();
 
@@ -37,20 +37,29 @@ const Root = () => {
         dispatch({
           type:'SET_PLAYLISTS',
           playlists: playlists,
-        })
+        });
       });
-    };
-  }, [dispatch]);
+      
+      spotify.getPlaylist("37i9dQZEVXcPC9MIZyAWnV").then(response => {
+        dispatch({
+          type: "SET_DISCOVER_WEEKLY",
+          discover_weekly: response,
+        });
 
-  console.log("Hey", user, token)
+        console.log(response);
+      });
+    }
+  }, []);
+
   return ( 
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme} >
       <GlobalStyle />     
         <div className="app">
           { token ? <Player spotify={spotify} /> : <Login /> } 
         </div>
     </ThemeProvider> 
-)};
+  )
+};
 
   
 export default Root;

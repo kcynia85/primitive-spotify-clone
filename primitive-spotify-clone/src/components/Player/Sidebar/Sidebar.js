@@ -14,10 +14,11 @@ const StyledSidebar = styled.aside`
     background: hsl(0, 0%, 2%);
     padding-left: 10px;
     padding-right: 10px;
+    padding-bottom: 10%;
 
     & .styledSidebar__underline {
         border: 1px solid #282828;
-        width: 90%;
+        width: 75%;
         margin: 10px auto;
     }
 `;
@@ -31,8 +32,9 @@ const LogoSidebar = styled.img`
 
 const PlaylistTitle = styled.strong`
     text-transform: uppercase;
-    margin-left: 10px;
-    padding: 5px;
+    margin-top: 20px;
+    margin-left: 15px;
+    padding: 10px;
     font-size: 12px;
 `;
 
@@ -53,9 +55,6 @@ const Sidebar = () => {
             {playlists?.items?.map(({ name }) => (
                 <SidebarOption title={name} />
             ))}
-            <SidebarOption title="Hip Hop" />
-            <SidebarOption title="Rock" />
-            <SidebarOption title="RnB" />
             
         </StyledSidebar>
     )
